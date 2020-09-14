@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %} Create League {% endblock %}
+{% load static %}
+
+{% block content %}
+<div class=page-navigation>
+    <div class=content-select>
+        <button id='public_league'  onclick='changeTemplate(this.id)'>Public League</a>
+        <button id='private_league' onclick='changeTemplate(this.id)'>Private League</a>
+    </div>
+    
+</div>
+<div id=page-content>
+    {% include template_to_include %}
+
+
+</div>
+<script src="{% static 'js/change_template.js' %}"></script>
+{% endblock %}
+
+
+{% block javascript %}
+{% endblock %}

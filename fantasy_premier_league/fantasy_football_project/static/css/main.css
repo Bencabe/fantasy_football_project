@@ -1,0 +1,202 @@
+* {
+  /* font-size: 100%; */
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+ }
+
+/* header styling */
+#main_header {
+  text-align: center; /* If you want a transition effect */
+  background-color: grey;
+  color: white;
+  top: 0;
+  left: 0;
+  right:0;
+  /* position: absolute; */
+  width: 100%;
+  height: 3em;
+}
+
+
+/* ----------------- The sidebar menu ----------------------------- */
+/* Code taken from w3 schools: https://www.w3schools.com/howto/howto_js_collapse_sidebar.asp */
+.sidebar {
+    height: 100%; /* 100% Full-height */
+    margin-right: 4vw;
+    width: 0; /* 0 width - change this with JavaScript */
+    position: absolute; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    /* top: 0; */
+    /* left: 0; */
+    background-color: #111; /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    /* padding-top: 60px; Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidebar */
+  }
+  
+  /* The sidebar links */
+  .sidebar a {
+    padding: 1vw 1vw 1vw 32px;
+    text-decoration: none;
+    font-size: 3vh;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+  }
+  
+  /* When you mouse over the navigation links, change their color */
+  .sidebar a:hover {
+    color: #f1f1f1;
+  }
+  
+  /* Position and style the close button (top right corner) */
+  .sidebar .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    /* margin-left: 50px; */
+  }
+  
+  /* The button used to open the sidebar */
+  .openbtn {
+    font-size: 20px;
+    cursor: pointer;
+    background-color: #111;
+    color: white;
+    /* padding: 10px 15px; */
+    width: 4vw;
+    border: none;
+    /* position: fixed; */
+    left: 0;
+    margin-top: 1em;
+  }
+  .open-btn-block {
+    height: 100%;
+    position: absolute;
+    /* display: block; */
+    /* width: 20em; */
+    /* display: inline-block; */
+    float: left;
+    background-color: black;
+  }
+  
+  .openbtn:hover {
+    background-color: #444;
+  }
+  
+  /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+  #main {
+    transition: margin-left .5s; 
+    margin-left: 4vw;
+  }
+  
+  /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+  @media screen and (max-height: 450px) {
+    .sidebar {padding-top: 15px;}
+    .sidebar a {font-size: 18px;}
+  }
+
+  /*---------------- draft pages navigation styling -------------------------------- */
+
+  .page-navigation{
+    /* display: flex; */
+    /* position: fixed; */
+    background-color:  #883d8b;
+    /* width: 100%; */
+    height: 8em;
+    position: relative;
+    /* float: left; */
+    color: #f1f1f1;
+  }
+
+  .content-select button {
+    height: 6vh;
+    width: 15vw;
+    /* float: inline-end; */
+    /* margin-right: 1vw; */
+    overflow-y: hidden;
+    overflow-x: hidden;
+    background: none;
+    border: none;
+    border-right: solid white;
+    color: white;
+    min-width: 100px;
+    font-size: 2vh;
+    /* justify-items: right; */
+  }
+
+  .content-select button:hover {
+    background-color: black;
+  }
+
+  .content-select  {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+  }
+
+  #select-league-label {
+    /* border-bottom: 10vh; */
+    line-height: 6vh;
+    margin-left: 1vw;
+  }
+
+  .league-selection select{
+    /* border-bottom: 10vh; */
+    height: 4vh;
+    background-color: #883d8b;
+    color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    
+  }
+  .league-selection select:hover{
+    background-color: black;
+  }
+
+
+    /*---------------- form styling -------------------------------- */
+
+    .form-wrapper{
+      background-color: #d4d1d1;
+      width: 100%;
+      height: 83%;
+      position: absolute;
+      text-align: center;
+    }
+
+    .form{
+      background-color: white;
+      width: 70%;
+      height: 100%;
+      display: inline-block;
+      text-align: center;
+
+      /* justify-self: center; */
+    }
+
+    .form-table{
+      width: 100%;
+      padding-bottom: 5vh;
+    }
+
+    .form-table tr{
+      line-height: 10vh;
+      border: 1px solid black;
+    }
+
+    .form-table td{
+      border: 1px solid black;
+    }
+
+    .form-submit{
+      background-color: #883d8b;
+      color: white;
+      padding: 2vh 4vh 2vh 4vh;
+      font-size: 1.5vw;
+    }
+
+    .form-submit:hover{
+      background-color: black;
+    }

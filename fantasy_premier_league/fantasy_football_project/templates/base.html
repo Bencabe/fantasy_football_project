@@ -1,0 +1,37 @@
+<!-- templates/base.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  {% load static %}
+  <title>{% block title %}Unnamed Fantasy Website{% endblock %}</title>
+  <link rel="stylesheet" href="{% static 'css/main.css' %}">
+
+</head>
+<body>
+  <h1 id=main_header> Wazzzzup This Is A Header</h1>
+  {% block sidebar %}
+  <div id="mySidebar" class="sidebar">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="{% url 'create_league' %}">Create League</a>
+    <a href="{% url 'leagues' %}">Leagues</a>
+    <a href="#">Account</a>
+    <a href="#">FAQ</a>
+    <a href="#">Contact</a>
+  </div>
+  <div class=open-btn-block>
+    <button class="openbtn" onclick="openNav()">&#9776;</button>
+  </div>
+  {% endblock %}
+  <main id="main">
+    {% block content %}
+    {% endblock %}
+  </main>
+
+</body>
+<script src="{% static 'js/sidebar.js' %}"></script>
+<script src="{% static 'js/change_template.js' %}"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+{% block javascript %}
+{% endblock %}
+</html>

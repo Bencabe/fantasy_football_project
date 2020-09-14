@@ -1,0 +1,21 @@
+<div class='form-wrapper'>
+    <form class='form' action="/draft/create_league/" method="post">
+        {% csrf_token %}
+        <h3> Create A Private League</h3>
+        <table class='form-table'>
+            <tr>
+                <td class='form-label'>League Name: </td>
+                <td class='form-input'>{{ form.name }}</td>
+            </tr>
+            <tr>
+                <td class='form-label'>Max Teams: </td>
+                <td class='form-input'>{{ form.max_teams }}</td>
+            </tr>
+            <tr>
+                <td class='form-label'>Draft Date: </td>
+                <td class='form-input'>{{ form.draft_date }}</td>
+            </tr>
+        </table>
+        <input class='form-submit' type="submit" value="Submit">
+    </form>
+</div>

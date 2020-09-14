@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block title %} Create League {% endblock %}
+{% load static %}
+
+{% block content %}
+
+<div class=page-navigation>
+    <div class=league-selection>
+        <label id=select-league-label for="cars">Choose a League:</label>
+        <select id=select-league-dropdown>
+        {% for league in leagues %}
+            <option value="{{ league.id }}">{{ league }}</option>
+        {% endfor %}
+        </select>
+    </div><br>
+    <div class=content-select>
+        <button id='league_table'  onclick='changeTemplateLeagues(this.id)'>League Table</a>
+        <button id='fixtures' onclick='changeTemplateLeagues(this.id)'>Fixtures</a>
+        <button id='transfers' onclick='changeTemplateLeagues(this.id)'>Transfers</a>
+        <button id='team' onclick='changeTemplateLeagues(this.id)'>Team</a>
+        <button id='info' onclick='changeTemplateLeagues(this.id)'>League Info</a>
+    </div>
+</div>
+<div id=page-content>
+    {% include 'leagues/info.html' %}
+
+
+</div>
+<script src="{% static 'js/change_template.js' %}"></script>
+{% endblock %}
+
+
+{% block javascript %}
+{% endblock %}
