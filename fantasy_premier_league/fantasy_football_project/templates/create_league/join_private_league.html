@@ -1,0 +1,17 @@
+<div class='form-wrapper'>
+    <form class='form' action="/draft/process_join_form/" method="post">
+        {% csrf_token %}
+        <h3> Join Private League</h3>
+        <table class='form-table'>
+            <tr>
+                <td class='form-label'>Team Name: </td>
+                <td class='form-input'>{{ join_form.team_name }}</td>
+            </tr>
+            <tr>
+                <td class='form-label'>League ID: </td>
+                <td class='form-input'>{{ join_form.league }}</td>
+            </tr>
+        </table>
+        <input class='form-submit' type="submit" value="Submit">
+    </form>
+</div>

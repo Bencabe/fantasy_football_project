@@ -8,4 +8,5 @@ urlpatterns = [
     path('change_template/<str:template>',  views.change_template, name='change_template'),
     path('leagues/',  views.leagues, name='leagues'),
     path('change_template_leagues/<str:template>/<str:league>',  views.change_template_leagues, name='change_template_leagues'),
+    path('process_join_form/',  views.process_join_form, name='process_join_form'),
 ]
