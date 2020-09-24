@@ -22,6 +22,7 @@ class Team(models.Model):
     league = models.ForeignKey(League,on_delete=models.CASCADE)
     team_name = models.CharField(max_length=50)
     total_score = models.DecimalField(max_digits=7,decimal_places=2,default=0)
+    draft_position = models.IntegerField(blank=True,null=True)
     player_1 = models.ForeignKey(Player,on_delete=models.CASCADE,related_name='player_1',blank=True,null=True)
     player_2 = models.ForeignKey(Player,on_delete=models.CASCADE,related_name='player_2',blank=True,null=True)
     player_3 = models.ForeignKey(Player,on_delete=models.CASCADE,related_name='player_3',blank=True,null=True)
@@ -43,8 +44,11 @@ class Team(models.Model):
     class Meta:
        unique_together = [["id", "league"],['user','league']]
 
-# class DraftRoom(models.Model):
-#     id = models.AutoField(primary_key=True)
-#     league = models.ForeignKey(League,on_delete=models.CASCADE)
+class DraftZone(models.Model):
+    id = models.AutoField(primary_key=True)
+    league = models.ForeignKey(League,on_delete=models.CASCADE)
+    players_chosen = models.ManyToManyField(Player,related_name='players_chosen',blank=True,null=True)
+    current_pick = models.ForeignKey(User,on_delete=models.CASCADE,blank=True,null=True )
+
 
 

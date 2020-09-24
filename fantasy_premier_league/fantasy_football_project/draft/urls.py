@@ -9,4 +9,6 @@ urlpatterns = [
     path('leagues/',  views.leagues, name='leagues'),
     path('change_template_leagues/<str:template>/<str:league>',  views.change_template_leagues, name='change_template_leagues'),
     path('process_join_form/',  views.process_join_form, name='process_join_form'),
+    path('leagues/draft_zone/<str:league>/<str:player>',  views.draft_zone, name='draft_zone'),
+    path('leagues/check_data/',  views.check_data, name='check_data'),
 ]

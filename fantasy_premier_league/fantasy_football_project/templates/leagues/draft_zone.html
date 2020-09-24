@@ -1,0 +1,125 @@
+{% load static %}
+{% load tz %}
+<input id="draft_date" type=hidden value="{{ dz_data.draft_date }}">
+    <p> draft at {{ dz_data.draft_date }}</p>
+    <p> Draft Started = {{ dz_data.has_started }}</p>
+    <p id='demo'></p>
+    {% get_current_timezone as TIME_ZONE %}
+    <p>{{ TIME_ZONE }}</p>
+    {% if dz_data.has_started == False %}
+        <p>Working</p>
+        <script>getCountDown("{{ dz_data.draft_date }}",DraftZone("NA"),'demo')</script>
+    {% endif %}
+    <table class="draft-player-table">
+        {% for player in dz_data.players %}
+            {% if player.id in dz_data.players_chosen %}
+                <tr>
+                    <td>{{ player }}</td>
+                    <td><button disabled class="chosen" id="{{ player.id }}" onclick="DraftZone(this.id)">Chosen</button></td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td>{{ player }}</td>
+                    <td><button class="not-chosen" id="{{ player.id }}" onclick="DraftZone(this.id)">Draft</button></td>
+                </tr>
+            {% endif %}
+        {% endfor %}
+    </table>
+<script src="{% static 'js/draft_zone.js' %}"></script>
+<script src="{% static 'js/change_template.js' %}"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <script>
+
+function arrayEquals(a, b) {
+  return Array.isArray(a) &&
+    Array.isArray(b) &&
+    a.length === b.length &&
+    a.every((val, index) => val === b[index]);
+}
+
+setInterval(function(){
+    let page = document.getElementById('page-content').innerHTML
+    let league = document.getElementById('select-league-dropdown').value
+    let querySet = "{{ dz_data.players_chosen }}"
+    let current_players = querySet.substring(
+    querySet.lastIndexOf("[") + 1, 
+    querySet.lastIndexOf("]"));
+    var current_player_list = current_players.split(',').map(function(item) {return parseInt(item, 10);});
+    // for (item in "{{ dz_data.players_chosen }}"){
+    //     console.log(item)
+    // }
+    if (page.search('draft-player-table') != -1){
+        $.ajax({
+        url: 'check_data',
+        data: {
+          'league': league
+        },
+        dataType: 'json',
+        success: function (data) {
+            if (arrayEquals(data.players_chosen,current_player_list)){
+                
+            }
+            else{
+                changeTemplateLeagues('draft_zone')
+            }
+        }
+      });
+    }
+}, 4000);
+
+(function runForever(){
+    let page = document.getElementById('page-content').innerHTML
+    let league = document.getElementById('select-league-dropdown').value
+    let querySet = "{{ dz_data.players_chosen }}"
+    let current_players = querySet.substring(
+    querySet.lastIndexOf("[") + 1, 
+    querySet.lastIndexOf("]"));
+    var current_player_list = current_players.split(',').map(function(item) {return parseInt(item, 10);});
+    // for (item in "{{ dz_data.players_chosen }}"){
+    //     console.log(item)
+    // }
+    if (page.search('draft-player-table') != -1){
+        $.ajax({
+        url: 'check_data',
+        data: {
+          'league': league
+        },
+        dataType: 'json',
+        success: function (data) {
+            if (arrayEquals(data.players_chosen,current_player_list)){
+                
+            }
+            else{
+                changeTemplateLeagues('draft_zone')
+            }
+        }
+      });
+    }
+  setTimeout(runForever, 5000)
+})()
+
+</script> -->
