@@ -84,15 +84,13 @@ def change_template_leagues(request,template,league):
     template = 'leagues/' + template + '.html'
     # get league info
     selected_league = League.objects.get(id=league)
-    info = {'id': selected_league.id}
+    draft_zone = DraftZone.objects.get(league=selected_league)
 
-    # get draft zone data
-    # draft_zone = DraftZone.objects.get(league=selected_league)
-    # players = Player.objects.all()
-    # players_chosen = draft_zone.players_chosen.all().values_list('id',flat=True)
-    # draft_date = draft_zone.league.draft_date
-    # dz_data = {'players':players,'draft_zone':draft_zone,'players_chosen':players_chosen,'draft_date':draft_date}
-    return render(request,template,{'info':info})
+    # getting team players for team template
+    user_team = Team.objects.get(user=request.user,league=league)
+    team_players = user_team.players_chosen.all()
+    info = {'id': selected_league.id}
+    return render(request,template,{'info':info,'team_players':team_players})
 
 def process_join_form(request):
     # function to process a user's request to join a private league
@@ -126,8 +124,13 @@ def draft_zone(request,league,player):
 
     if player != 'NA':
         selected_player = Player.objects.get(id=player)
+        # if a player was picked in the draft zone add it to the list of selected players in the draft zone
         draft_zone.players_chosen.add(selected_player)
         draft_zone.save()
+        # if a player was picked in the draft zone add it to the user's selected players
+        user_team = Team.objects.get(user=request.user,league=league)
+        user_team.players_chosen.add(selected_player)
+        user_team.save()
 
     players_chosen = list(draft_zone.players_chosen.all().values_list('id',flat=True))
     print(draft_date,datetime.now(loc_timezone))
@@ -158,4 +161,3 @@ def check_data(request):
     players_chosen = draft_zone.players_chosen.all().values_list('id',flat=True)
     data = {'players_chosen':list(players_chosen)}
     return JsonResponse(data)
-    # create a dictionary with all data needed to render the template

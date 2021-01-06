@@ -206,3 +206,49 @@
 .draft-player-table .chosen{
   background-color: red;
 }
+
+
+/*---------------- team page styling -------------------------------- */
+/* .pitch-display{
+  text-align: center;
+  width: 50%;
+  background-color: aqua;
+  display: block;
+  position: relative;
+}
+.pitch-image{
+  float: left;
+  z-index: 1;
+  width: 100%;
+  position: relative;
+}
+.pitch-display-player{
+  z-index: 2;
+  position: absolute;
+  display: block;
+  height: 25%;
+  width:100%;
+}
+.goalkeeper{
+  top:0;
+  right: 0;
+  position: relative;
+} */
+
+/* .pitch-display-player .defender{
+  top:25px;
+} */
+
+/* .pitch-display-player .midfielder{
+  top:25px;
+} */
+
+.player-group{
+  display: block;
+  text-align: center;
+}
+#player{
+  display: inline-block;
+  border: 1px solid black;
+  
+}

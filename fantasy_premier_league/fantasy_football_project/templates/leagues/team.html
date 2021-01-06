@@ -1,0 +1,51 @@
+<!-- {% load static %} -->
+<!-- <div url({% static 'images/initial_pitch.jpg' %};);"></div> -->
+<!-- 
+    <div class="pitch-display-player goalkeeper">Goalkeeper</div>
+    <div class="pitch-display-player defender">Defender</div>
+    <div class="pitch-display-player midfielder">Midfielder</div>
+    <div class="pitch-display-player forward">Forward</div>
+</div> -->
+<div class="pitch-display">
+    <img class="pitch-image" src="{% static 'images/initial_pitch.jpg' %}">
+    <div class='player-group goalkeeper'>
+    {% for player in team_players %}
+        {% if player.position == "Goalkeeper" %}
+        <div id='player'> 
+            {{ player.last_name }} <br>
+            {{ player.cur_score }}
+        </div>
+        {% endif %}
+    {% endfor %}
+    </div>
+    <div class='player-group defender'>
+    {% for player in team_players %}
+        {% if player.position == "Defender" %}
+        <div id='player'> 
+            {{ player.last_name }} <br>
+            {{ player.cur_score }}
+        </div>
+        {% endif %}
+    {% endfor %}
+    </div>
+    <div class='player-group midfielder'>
+    {% for player in team_players %}
+        {% if player.position == "Midfielder" %}
+        <div id='player'> 
+            {{ player.last_name }}<br>
+            {{ player.cur_score }}
+        </div>
+        {% endif %}
+    {% endfor %}
+    </div>
+    <div class='player-group forward'>
+    {% for player in team_players %}
+        {% if player.position == "Forward" %}
+        <div id='player'> 
+            {{ player.last_name }} <br>
+            {{ player.cur_score }}
+        </div>
+        {% endif %}
+    {% endfor %}
+    </div>
+</div>
