@@ -127,3 +127,10 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# testing and analysis
+fantasy_premier_league/all_players_current_season.ipynb
+fantasy_premier_league/create_matches_table.ipynb
+fantasy_premier_league/get_players_per_match.ipynb
+fantasy_premier_league/live_stats_testing.ipynb
+fantasy_premier_league/Untitled.ipynb
